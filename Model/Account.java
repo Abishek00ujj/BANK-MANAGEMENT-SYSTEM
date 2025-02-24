@@ -2,9 +2,9 @@ package Model;
 
 public class Account
 {
-    String acc_number;
-    String acc_type;
-    String customerId;
+   public String acc_number;
+    public String acc_type;
+    public String customerId;
 
 
     public Account(String acc_number,String acc_type,String customerId)

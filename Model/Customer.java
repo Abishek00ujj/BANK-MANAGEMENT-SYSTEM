@@ -12,7 +12,7 @@ public class Customer
     public Address address;
 
 
-    ArrayList<Account> accounts=new ArrayList<>();
+    public ArrayList<Account> accounts=new ArrayList<>();
 
 
     public Customer(String customerId,String cust_name,String phone_number,String email,Address address,ArrayList<Account> accounts)

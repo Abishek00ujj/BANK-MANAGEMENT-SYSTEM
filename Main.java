@@ -69,10 +69,28 @@ public class Main
                             System.out.println("Choose an option: ");
 
                             int op=Integer.parseInt(sc.nextLine());
-                            if(op==1)
-                            {
-
-                            }
+                                Account account=accountMethods.add_Account(account_types[op-1],customer.customerId);
+                                ArrayList<Account> dummy=accountMethods.get_Customer(customer.customerId).accounts;
+                                ArrayList<Account> newList=new ArrayList<>();
+                                newList.addAll(dummy);
+                                newList.add(account);
+                                Customer customer1=new Customer(customer.customerId,customer.cust_name,customer.phone_number,customer.email,customer.address,newList);
+                                accountMethods.add_account_existing_customer(customer.customerId,customer1);
+                                System.out.println();
+                                System.out.println("Loading....");
+                                System.out.println("Account has been created!");
+                                System.out.println();
+                                System.out.println("|-------------------------------------------------------|");
+                                System.out.println("|           CUSTOMER ACCOUNT DETAILS!                   |");
+                                System.out.println("|                                                       |");
+                                System.out.println("|      ACCOUNT NUMBER : "+account.acc_number+"          |");
+                                System.out.println("|         CUSTOMER ID : "+account.customerId+"          |");
+                                System.out.println("|                NAME : "+customer1.cust_name+"         |");
+                                System.out.println("|        PHONE NUMBER : "+customer1.phone_number+"      |");
+                                System.out.println("|                                                       |");
+                                System.out.println("|-------------------------------------------------------|");
+                                System.out.println("");
+                                System.out.println("kindly, Make a note of this Account details!");
                         }
                     }
                     else if(option==2)
@@ -105,13 +123,28 @@ public class Main
                             System.out.println(i+1+":"+account_types[i]);
                         }
                         System.out.println("Choose an option: ");
-
-                        int op=Integer.parseInt(sc.nextLine());
-                        if(op==1)
-                        {
-
-                        }
-                        Account account=accountMethods.add_Account();
+                        int opti=Integer.parseInt(sc.nextLine());
+                           Account account=accountMethods.add_Account(account_types[opti-1],customer_Id);
+                          // ArrayList<Account> dummy=accountMethods.get_Customer(customer_Id).accounts;
+                           ArrayList<Account> newList=new ArrayList<>();
+                           newList.add(account);
+                           Customer customer1=new Customer(customer_Id,cust_name,cust_phoneNumber,cust_email,address,newList);
+                           accountMethods.add_account_existing_customer(customer_Id,customer1);
+                            System.out.println();
+                            System.out.println("Loading....");
+                            System.out.println("Account has been created!");
+                            System.out.println();
+                            System.out.println("|-------------------------------------------------|");
+                            System.out.println("|           CUSTOMER ACCOUNT DETAILS!             |");
+                            System.out.println("|                                                 |");
+                            System.out.println("|      ACCOUNT NUMBER : "+account.acc_number+"    | ");
+                            System.out.println("|         CUSTOMER ID : "+account.customerId+"    |");
+                            System.out.println("|                NAME : "+cust_name+"             |");
+                            System.out.println("|        PHONE NUMBER : "+cust_phoneNumber+"      |");
+                            System.out.println("|                                                 |");
+                            System.out.println("|-------------------------------------------------|");
+                            System.out.println("");
+                            System.out.println("kindly, Make a note of this Account details!");
                     }
 
                 }
