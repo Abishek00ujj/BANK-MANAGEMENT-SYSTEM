@@ -32,6 +32,7 @@ public class Main
                 System.out.println();
                 System.out.println("1.CREATE ACCOUNT");
                 System.out.println("2.MANAGE ACCOUNT");
+                System.out.println("3.LOGOUT");
                 int opt=Integer.parseInt(sc.nextLine());
                 if(opt==1)
                 {
@@ -152,6 +153,18 @@ public class Main
                 {
 
                 }
+                else if(opt==3)
+                {
+                    System.out.println("PRESS/ TYPE CONFIRM TO LOGOUT");
+                    String confirm = sc.nextLine();
+                    if (confirm.toLowerCase().equals("confirm")) {
+                        System.out.println(employeeData.name + " is Logging out....");
+                        System.out.println("Loading...");
+                        System.out.println("Logout succuessfully!");
+                        employeeData=null;
+                        EmpLoginFlag=0;
+                    }
+                }
             }
             else {
                 System.out.println("1.BANK MANAGER LOGIN");
@@ -199,19 +212,25 @@ public class Main
                                 String employee_password = sc.nextLine();
                                 Employee employee = new Employee(employee_id, branch.ifce, employee_name, employee_password);
                                 employeeMethods.add_employee(employee_id, employee);
+                                System.out.println(employee.toString());
 
                                 System.out.println("Employee account is creating....");
 
                                 System.out.println();
                                 System.out.println("Employee account is created succuesfully");
                                 System.out.println();
-                            } else if (opt == 2) {
+                            }
+                            else if (opt == 2)
+                            {
                                 System.out.println("  EMPLOYEE_NAME  " + "EMPLOYEE_ID  " + "EMPLOYEE_PASSWORD");
                                 HashMap<String, Employee> employee_details = employeeMethods.getAll_Employees();
-                                for (Map.Entry<String, Employee> em : employee_details.entrySet()) {
+                                for (Map.Entry<String, Employee> em : employee_details.entrySet())
+                                {
                                     System.out.println("   " + em.getValue().name + "     " + em.getValue().empid + "    " + em.getValue().password);
                                 }
-                            } else if (opt == 3) {
+                            }
+                            else if (opt == 3)
+                            {
                                 System.out.println("PRESS/ TYPE CONFIRM TO LOGOUT");
                                 String confirm = sc.nextLine();
                                 if (confirm.toLowerCase().equals("confirm")) {
@@ -235,15 +254,17 @@ public class Main
                     System.out.println("ENTER YOUR PASSWORD : ");
                     String employee_password = sc.nextLine();
 
-                    if (employeeMethods.employee_login(employee_id, employee_password)) {
+                    if (employeeMethods.employee_login(employee_id, employee_password))
+                    {
                         EmpLoginFlag = 1;
                         employeeData = employeeMethods.getData(employee_id);
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Sorry!. employee credentials is wrong!");
                     }
                 }
             }
-
         }
     }
 }
