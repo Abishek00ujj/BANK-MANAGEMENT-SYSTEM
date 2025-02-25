@@ -4,10 +4,7 @@ import Model.Account;
 import Model.Address;
 import Model.Customer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Random;
+import java.util.*;
 
 public class Account_methods
 {
@@ -45,4 +42,34 @@ public class Account_methods
     {
         return customers.get(customer_id);
     }
+
+
+    public Account get_Account_by_Account_Number(String acc_number)
+    {
+        for(Map.Entry<String,Customer> e:customers.entrySet())
+        {
+            ArrayList<Account> cus=e.getValue().accounts;
+            for(Account acc:cus)
+            {
+                if(acc.acc_number.equals(acc_number))
+                {
+                    return acc;
+                }
+            }
+        }
+        return null;
+    }
+
+
+    public ArrayList<Account> get_Accounts_by_customer_id(String cust_id)
+    {
+        for(Map.Entry<String,Customer> e:customers.entrySet())
+        {
+            ArrayList<Account> accounts=e.getValue().accounts;
+            return accounts;
+        }
+        return null;
+    }
+
+
 }

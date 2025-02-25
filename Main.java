@@ -151,7 +151,31 @@ public class Main
                 }
                 else if (opt==2)
                 {
+                    System.out.println("---------------------------MANAGE ACCOUNT--------------------------");
+                    System.out.println();
+                    System.out.println("ENTER YOUR ACCOUNT NUMBER : ");
+                    String acc_number=sc.nextLine();
 
+                    Account acc_data=accountMethods.get_Account_by_Account_Number(acc_number);
+                    Customer cust_data=accountMethods.get_Customer(acc_data.customerId);
+                    if(acc_data!=null)
+                    {
+                        System.out.println();
+                        System.out.println("|-------------------------------------------------|");
+                        System.out.println("|           CUSTOMER ACCOUNT DETAILS!             |");
+                        System.out.println("|                                                 |");
+                        System.out.println("|      ACCOUNT NUMBER : "+acc_data.acc_number+"   | ");
+                        System.out.println("|         CUSTOMER ID : "+acc_data.customerId+"   |");
+                        System.out.println("|                NAME : "+cust_data.cust_name+"   |");
+                        System.out.println("|        PHONE NUMBER : "+cust_data.phone_number+"|");
+                        System.out.println("|                                                 |");
+                        System.out.println("|-------------------------------------------------|");
+
+                        System.out.println("1.EDIT PHONE NUMBER :");
+                        System.out.println("2.EDIT ADDRESS :");
+                        System.out.println("3.EDIT EMAIL :");
+
+                    }
                 }
                 else if(opt==3)
                 {
@@ -242,7 +266,9 @@ public class Main
                                 }
                             }
                         }
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Sorry!, wrong credentials provided!");
                     }
                 } else if (option == 2) {
